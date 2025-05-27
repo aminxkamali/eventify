@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignUpPage';
+import ForgetPasswordPage from './pages/ForgetPasswordPage';
+import ResetPasswordSuccessPage from './pages/resetPasswordSuccessPage';
+import PasswordResetErrorPage from './pages/passwordResetErrorPage';
+import HomePage from './pages/HomePage';
+// import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './context/AuthContext';
+import ProfilePage from './pages/profilePage';
+import CreateEventPage from './pages/CreateEventPage';
+import FriendsPage from './pages/FriendsPage';
+import TeamsPage from './pages/TeamsPage';
+import './index.css';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/ForgetPasswordPage" element={<ForgetPasswordPage />} />
+          <Route path="/resetPasswordSuccessPage" element={<ResetPasswordSuccessPage />} />
+          <Route path="/passwordResetErrorPage" element={<PasswordResetErrorPage />} />
+          <Route path="/HomePage" element={<HomePage />} />
+          <Route path='/ProfilePage' element={<ProfilePage/>}/>
+          <Route path="/CreateEvent" element={<CreateEventPage/>} />
+          <Route path="/FriendsPage" element={<FriendsPage/>}/>
+          <Route path='/TeamsPage' element={<TeamsPage/>}/>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
