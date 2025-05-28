@@ -1,5 +1,3 @@
-import react from 'react';
-import { Link } from 'react-router-dom';
 import { InputText } from 'primereact/inputtext';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.min.css';

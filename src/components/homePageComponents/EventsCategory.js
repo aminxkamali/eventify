@@ -56,6 +56,7 @@ return (
                 <div className='flex flex-row justify-center items-center p-3'>
                     <span className='text-3xl font-bold font-inter text-white xl:text-3xl lg:text-2xl md:text-xl sm:text-lg'>{Categories.CategoryName}</span>
                 </div>
+                
             </Card>
             ))}
         </div>
