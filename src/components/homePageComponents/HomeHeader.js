@@ -19,7 +19,7 @@ return (
         </nav>
         <div className="flex items-center gap-3">
             <Link to='/CreateEvent' >
-            <button className="bg-[#3E32E6] hover:bg-[#1d92E2] active:bg-[#3E32E6] text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200 justify-center">create event</button>
+            <button className="bg-[#3E32E6] hover:bg-[#1d92E2] active:bg-[#3E32E6] text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200 justify-center">Create Event</button>
             </Link>
             <Link to='/ProfilePage'>
                 <img src="https://randomuser.me/api/portraits/men/32.jpg" className="w-12 h-12 rounded-full border-2 border-white" alt="profile" />

@@ -12,7 +12,7 @@ export default function CreateEvent() {
             <span className='p-4'>
                 <a href='/CreateEvent'>
                     <button className="bg-[#3E32E6] hover:bg-[#1d92E2] active:bg-[#3E32E6] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 justify-center ">
-                        create event
+                        Create Event
                     </button>
                 </a>
             </span>

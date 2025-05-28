@@ -52,7 +52,6 @@ export default function ProfileForm() {
                     </span>
                     <Button label="Update profile" className="w-full mt-8" style={{ background: '#FF8C2E', border: 'none', fontSize: '1.3rem', height: '3.2rem' }} />
                 </form>
-
             </div>
         </div>
     );
