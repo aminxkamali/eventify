@@ -2,8 +2,15 @@
 import React, { useState } from 'react';
 import EventCard from './EventCard';
 import { Dropdown } from 'primereact/dropdown';
-
+import { Paginator } from 'primereact/paginator';
 const UpcomingEvents = ({ events }) => {
+    const [first, setFirst] = useState(0); // new state to control pagination
+
+    const itemsPerPage = 4;
+    const totalPages = Math.ceil(events.length / itemsPerPage);
+
+    // Calculate current page based on first index
+    const currentEvents = events.slice(first, first + itemsPerPage);
     const [filters, setFilters] = useState({
         team: null,
         friend: null,
@@ -18,13 +25,11 @@ const UpcomingEvents = ({ events }) => {
         tag: ['ux', 'ads', 'frontend'],
     };
     const [page, setPage] = useState(1);
-    const itemsPerPage = 4;
-    const totalPages = Math.ceil(events.length / itemsPerPage);
+
     const startIdx = (page - 1) * itemsPerPage;
-    const currentEvents = events.slice(startIdx, startIdx + itemsPerPage);
 
     return (
-        <div className="w-2/3 h-screen justify-center">
+        <div className="w-2/3 h-screen justify-center overflow-y-auto">
             <div className="w-full text-white">
                 <div className="w-full flex flex-row justify-between pb-1">
                 {/* Title */}
@@ -53,7 +58,6 @@ const UpcomingEvents = ({ events }) => {
                                 />
                             </div>
                         ))}
-
                         {/* Reset Button */}
                         <div className="flex items-end h-full">
                             <button className='w-40 bg-[#21333F] text-white h-11 rounded-lg'>
@@ -64,26 +68,24 @@ const UpcomingEvents = ({ events }) => {
                 </div>
 
                 {/* Event Cards */}
-                <div className=" overflow-y-auto max-h-[90%]">
+                <div className=" overflow-y-auto max-h-[20%]">
                     {currentEvents.map((event, idx) => (
                         <EventCard key={idx} event={event} />
                     ))}
                 </div>
 
                 {/* Pagination */}
-                <div className="flex justify-center items-center mt-4 gap-2">
-                    {[...Array(totalPages)].map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={() => setPage(i + 1)}
-                            className={`px-3 py-1 rounded ${
-                            page === i + 1 ? 'bg-orange-500 text-white' : 'bg-gray-700 text-gray-300'
-                            }`}
-                        >
-                            {i + 1}
-                        </button>
-                    ))}
-                </div>
+                <Paginator
+                    first={first}
+                    rows={itemsPerPage}
+                    totalRecords={events.length}
+                    onPageChange={(e) => {
+                        setFirst(e.first);
+                        setPage(Math.floor(e.first / itemsPerPage) + 1);
+                    }}
+                    className="mt-4 bg-[#0E141E] text-white rounded-lg"
+                    template="PrevPageLink PageLinks NextPageLink"
+                />
             </div>
         </div>
     );
