@@ -9,6 +9,7 @@ import { MultiSelect } from 'primereact/multiselect';
 import ErrorAlert from '../components/createEventPageComponents/CreateEventErrorAlert';
 import SuccessAlert from '../components/createEventPageComponents/CreateEventSuccessAlert';
 import { Chips } from 'primereact/chips';
+
 // گزینه‌های اولیه
 const memberOptions = [
     { label:'Mike Smith' , value: 'Mike Smith' },

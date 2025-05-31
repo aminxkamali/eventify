@@ -11,6 +11,7 @@ import ProfilePage from './pages/profilePage';
 import CreateEventPage from './pages/CreateEventPage';
 import FriendsPage from './pages/FriendsPage';
 import TeamsPage from './pages/TeamsPage';
+import MyEventsPage from './pages/MyEventsPage';
 import './index.css';
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/CreateEvent" element={<CreateEventPage/>} />
           <Route path="/FriendsPage" element={<FriendsPage/>}/>
           <Route path='/TeamsPage' element={<TeamsPage/>}/>
+          <Route path='/MyEventsPage' element={<MyEventsPage/>}/>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

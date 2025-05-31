@@ -14,7 +14,6 @@ export default function HomePage() {
       <DiscoverEventsHeader />
       <UpcomingEvents />
       <div className="w-[90%] h-px bg-gray-300 mt-4 mb-4 justify-center item-center m-auto" />
-
       <EventsCategory />
       <div className="w-[90%] h-px bg-gray-300 mt-4 mb-4 justify-center item-center m-auto" />
       <FriendsList />
@@ -22,8 +21,6 @@ export default function HomePage() {
       <TeamsList/>
       <div className="w-[90%] h-px bg-gray-300 mt-4 mb-4 justify-center item-center m-auto" />
       <CreateEvent />
-      
-
       <HomeFooter />
     </div>
   );

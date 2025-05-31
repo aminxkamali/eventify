@@ -1,0 +1,92 @@
+// components/UpcomingEvents.jsx
+import React, { useState } from 'react';
+import EventCard from './EventCard';
+import { Dropdown } from 'primereact/dropdown';
+
+const UpcomingEvents = ({ events }) => {
+    const [filters, setFilters] = useState({
+        team: null,
+        friend: null,
+        type: null,
+        tag: null,
+    });
+
+    const filterOptions = {
+        team: ['Tech', 'Marketing', 'Design', 'Business'],
+        friend: ['Ali', 'Mina123', 'Coder77'],
+        type: ['Todo', 'Event'],
+        tag: ['ux', 'ads', 'frontend'],
+    };
+    const [page, setPage] = useState(1);
+    const itemsPerPage = 4;
+    const totalPages = Math.ceil(events.length / itemsPerPage);
+    const startIdx = (page - 1) * itemsPerPage;
+    const currentEvents = events.slice(startIdx, startIdx + itemsPerPage);
+
+    return (
+        <div className="w-2/3 h-screen justify-center">
+            <div className="w-full text-white">
+                <div className="w-full flex flex-row justify-between pb-1">
+                {/* Title */}
+                    <h2 className='w-1/4 font-bold flex items-center py-5 text-white text-lg'>My Events</h2>
+                {/* Filters + Button */}
+                    <div className='w-3/4 flex flex-row gap-4 items-end justify-end'>
+                        {['team', 'friend', 'type', 'tag'].map((field) => (
+                            <div key={field} className="flex flex-col">
+                                <label htmlFor={field} className="block text-sm mb-2 text-white capitalize">{field}</label>
+                                <Dropdown
+                                    id={field}
+                                    value={filters[field]}
+                                    options={filterOptions[field].map(opt => ({ label: opt, value: opt }))}
+                                    onChange={(e) => setFilters(prev => ({ ...prev, [field]: e.value }))}
+                                    placeholder={`Select ${field}`}
+                                    className="w-48"
+                                    panelClassName="bg-[#0E141E] text-white"
+                                    dropdownIcon="pi pi-chevron-down"
+                                    style={{
+                                        background: '#21333F',
+                                        borderColor: '#21333F',
+                                        color: 'white',
+                                        height: '44px',
+                                        borderRadius: '0.5rem',
+                                    }}
+                                />
+                            </div>
+                        ))}
+
+                        {/* Reset Button */}
+                        <div className="flex items-end h-full">
+                            <button className='w-40 bg-[#21333F] text-white h-11 rounded-lg'>
+                                Reset Filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Event Cards */}
+                <div className=" overflow-y-auto max-h-[90%]">
+                    {currentEvents.map((event, idx) => (
+                        <EventCard key={idx} event={event} />
+                    ))}
+                </div>
+
+                {/* Pagination */}
+                <div className="flex justify-center items-center mt-4 gap-2">
+                    {[...Array(totalPages)].map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setPage(i + 1)}
+                            className={`px-3 py-1 rounded ${
+                            page === i + 1 ? 'bg-orange-500 text-white' : 'bg-gray-700 text-gray-300'
+                            }`}
+                        >
+                            {i + 1}
+                        </button>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default UpcomingEvents;

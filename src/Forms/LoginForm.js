@@ -30,6 +30,7 @@ const handleSubmit = async (e) => {
       setLoading(false);
     } catch (err) {
       setLoading(false);
+    
       alert('Login failed');
     }
 };

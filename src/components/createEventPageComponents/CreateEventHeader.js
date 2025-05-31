@@ -13,7 +13,7 @@ return (
             <nav className="w-1/3 flex items-center gap-6 text-white text-base font-medium justify-center" >
                 <Link to="/HomePage" className="hover:text-orange-400">Home</Link>
                 <Link to="/explore" className="hover:text-orange-400">Explore</Link>
-                <Link to="/my-events" className="hover:text-orange-400">My Events</Link>
+                <Link to="/MyEventsPage" className="hover:text-orange-400">My Events</Link>
                 <Link to="/FriendsPage" className="hover:text-orange-400">Friends</Link>
                 <Link to="/TeamsPage" className="hover:text-orange-400">Teams</Link>
             </nav>

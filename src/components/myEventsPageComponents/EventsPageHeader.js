@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import eventifyLogo from '../../icons/eventifyLogo.png'; // Adjust the path as necessary
-export default function HomeHeader() {
+export default function EventsPageHeader() {
 return (
     <header className="w-full bg-[#0E141E] flex flex-col items-center ">
     <div className="w-full pr-8 pl-8 flex items-center justify-between">
@@ -13,7 +13,7 @@ return (
         <nav className="flex items-center gap-6 text-white text-base font-medium">
             <Link to="/HomePage" className="hover:text-orange-400">Home</Link>
             <Link to="/explore" className="hover:text-orange-400">Explore</Link>
-            <Link to="/MyEventsPage" className="hover:text-orange-400">My Events</Link>
+            <Link to="/my-events" className="hover:text-orange-400">My Events</Link>
             <Link to="/FriendsPage" className="hover:text-orange-400">Friends</Link>
             <Link to="/TeamsPage" className="hover:text-orange-400">Teams</Link>
         </nav>

@@ -24,7 +24,7 @@ export default function FriendsPageHeader() {
                 <div className='flex flex-row items-center space-x-4 gap-2'>
                     <Link to="/HomePage" className="text-white hover:text-gray-300">Home</Link>
                     <Link to="/events" className="text-white hover:text-gray-300">Explore</Link>
-                    <Link to="/settings" className="text-white hover:text-gray-300">My Events</Link>
+                    <Link to="/MyEventsPage" className="text-white hover:text-gray-300">My Events</Link>
                     <Link to="/TeamsPage" className="hover:text-orange-400">Teams</Link>
                     <button
                         onClick={handleLogout}
