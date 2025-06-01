@@ -7,8 +7,6 @@ const UpcomingEvents = ({ events }) => {
     const [first, setFirst] = useState(0); // new state to control pagination
 
     const itemsPerPage = 4;
-    const totalPages = Math.ceil(events.length / itemsPerPage);
-
     // Calculate current page based on first index
     const currentEvents = events.slice(first, first + itemsPerPage);
     const [filters, setFilters] = useState({
@@ -25,8 +23,6 @@ const UpcomingEvents = ({ events }) => {
         tag: ['ux', 'ads', 'frontend'],
     };
     const [page, setPage] = useState(1);
-
-    const startIdx = (page - 1) * itemsPerPage;
 
     return (
         <div className="w-2/3 h-screen justify-center overflow-y-auto">
@@ -60,7 +56,13 @@ const UpcomingEvents = ({ events }) => {
                         ))}
                         {/* Reset Button */}
                         <div className="flex items-end h-full">
-                            <button className='w-40 bg-[#21333F] text-white h-11 rounded-lg'>
+                            <button className='w-40 bg-[#21333F] text-white h-11 rounded-lg' 
+                            onClick={(e)=>setFilters({        
+                                team: null,
+                                friend: null,
+                                type: null,
+                                tag: null,
+                            })}>
                                 Reset Filters
                             </button>
                         </div>

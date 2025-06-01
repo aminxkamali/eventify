@@ -9,7 +9,6 @@ export default function ProfileHeader() {
         // حذف اطلاعات ذخیره‌شده
         localStorage.removeItem('user');
         localStorage.removeItem('token'); // یا هر چیزی که ذخیره کردی
-
         // انتقال به صفحه ورود
         navigate('/');
     };
