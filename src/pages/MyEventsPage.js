@@ -49,9 +49,9 @@ const sampleEvents = [
 
 const MyEventsPage = () => {
     return (
-        <div className="h-full flex flex-col text-black justify-center ">
-            <EventsPageHeader/>
-            <div className='flex flex-row bg-[#060C16] w-full h-screen px-2 text-white justify-around items-center '>
+        <div className=" flex flex-col text-black ">
+            <EventsPageHeader />
+            <div className='flex flex-row bg-[#060C16] h-screen w-full px-2 text-white justify-around items-center '>
                 <CalenderSection />
                 <UpcomingEvents events={sampleEvents} />
             </div>

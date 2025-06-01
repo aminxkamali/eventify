@@ -2,10 +2,7 @@ import React, { useRef, useState } from 'react';import { InputText } from 'prime
 import { Calendar } from 'primereact/calendar';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Button } from 'primereact/button';
-import { FileUpload } from 'primereact/fileupload';
-import 'primereact/resources/themes/lara-dark-indigo/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
+
 
 export default function ProfileForm() {
     const [birthDate, setBirthDate] = useState(null);
@@ -72,6 +69,7 @@ export default function ProfileForm() {
                     style={{ display: 'none' }}
                 />
             </div>
+
             {/* Main form */}
             <div className="flex-1 flex flex-col justify-center px-16">
                 <form className="space-y-6 mb-6">
@@ -124,7 +122,7 @@ export default function ProfileForm() {
                     </div>
                     <Button 
                         label="Update profile" 
-                        className="w-full mt-8 h-11 rounded-lg bg-[#FF8C2E] text-white font-bold hover:bg-orange-600 active:bg-orange-400 transition" 
+                        className="w-full mt-8 h-11 rounded-lg bg-[#FF8C2E] text-white font-bold hover:bg-orange-600 active:bg-orange-400 transition" Add commentMore actions
                         type="submit" 
                     />
                 </form>

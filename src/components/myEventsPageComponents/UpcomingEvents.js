@@ -25,7 +25,7 @@ const UpcomingEvents = ({ events }) => {
     const [page, setPage] = useState(1);
 
     return (
-        <div className="w-2/3 h-screen justify-center items-center">
+        <div className="w-2/3  justify-center items-center">
             <div className="w-full text-white">
                 <div className="w-full flex flex-row justify-between pb-1">
                 {/* Title */}
