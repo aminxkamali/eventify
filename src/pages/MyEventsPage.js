@@ -49,7 +49,7 @@ const sampleEvents = [
 
 const MyEventsPage = () => {
     return (
-        <div className="h-full flex flex-col text-black justify-center">
+        <div className="h-full flex flex-col text-black justify-center ">
             <EventsPageHeader/>
             <div className='flex flex-row bg-[#060C16] w-full h-screen px-2 text-white justify-around items-center '>
                 <CalenderSection />
