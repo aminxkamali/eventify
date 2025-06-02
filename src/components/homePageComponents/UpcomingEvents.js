@@ -55,7 +55,7 @@ return (
                 Upcoming Events
             </span>
             <span className="text-base text-[#0F08F1] font-italic hover:cursor-pointer xl:text-base lg:text-sm md:text-xs sm:text-xxs">
-                <a href="/Events">View all</a>
+                <a href="/MyEventsPage">View all</a>
             </span>
         </div>
 
@@ -64,7 +64,6 @@ return (
             <Card
                 key={event.id}
                 className="w-[15%] rounded-lg overflow-hidden shadow-sm bg-gray-200 hover:bg-gray-300 hover:cursor-pointer xl:w-[15%] lg:w-[13.5%] md:w-[12%] sm:w-[10%]"
-                bodyClassName="p-0"
             >
                 <img
                 src={BusinessImage}

@@ -9,9 +9,9 @@ import HomePage from './pages/HomePage';
 import { AuthProvider } from './context/AuthContext';
 import ProfilePage from './pages/profilePage';
 import CreateEventPage from './pages/CreateEventPage';
-import FriendsPage from './pages/FriendsPage';
-import TeamsPage from './pages/TeamsPage';
 import MyEventsPage from './pages/MyEventsPage';
+import ExplorePage from './pages/ExplorePage';
+import CommunityPage from './pages/CommunityPage';
 import './index.css';
 function App() {
   return (
@@ -26,9 +26,9 @@ function App() {
           <Route path="/HomePage" element={<HomePage />} />
           <Route path='/ProfilePage' element={<ProfilePage/>}/>
           <Route path="/CreateEvent" element={<CreateEventPage/>} />
-          <Route path="/FriendsPage" element={<FriendsPage/>}/>
-          <Route path='/TeamsPage' element={<TeamsPage/>}/>
           <Route path='/MyEventsPage' element={<MyEventsPage/>}/>
+          <Route path='/ExplorePage' element={<ExplorePage />} />
+          <Route path='/CommunityPage' element={<CommunityPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

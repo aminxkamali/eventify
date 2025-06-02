@@ -20,7 +20,7 @@ const TeamsList = () => {
                     Browse by Teams list
                 </span>
                 <span
-                    onClick={() => navigate('/TeamsPage')}
+                    onClick={() => navigate('/CommunityPage')}
                     className="text-base text-[#0F08F1] font-italic hover:cursor-pointer xl:text-base lg:text-sm md:text-xs sm:text-xxs"
                 >
                     View all
@@ -34,7 +34,6 @@ const TeamsList = () => {
                         key={team.id}
                         className="w-[15%] rounded-xl overflow-hidden shadow-sm bg-white hover:bg-gray-300 hover:cursor-pointer flex flex-col justify-center items-center p-4"
                         onClick={() => navigate('/TeamsPage')}
-                        bodyClassName="p-0"
                     >
                         {/* Team circle icon */}
                         <div
@@ -45,12 +44,10 @@ const TeamsList = () => {
                                 {team.name.charAt(0)}
                             </span>
                         </div>
-
                         {/* Team name */}
                         <span className="text-sm text-black font-semibold mb-2">
                             {team.name}
                         </span>
-
                         {/* Extra info */}
                         <div className="text-xs text-gray-700 text-left w-full">
                             <p><strong>Owner:</strong> {team.owner}</p>

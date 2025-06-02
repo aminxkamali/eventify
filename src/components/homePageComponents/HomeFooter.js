@@ -13,26 +13,23 @@ export default function HomeFooter() {
                     <span className="text-l ">eventify</span>
                 </div>
                 <div className="flex gap-4 mt-2">
-                    <a href="#"><i className="pi pi-twitter text-xl hover:text-orange-400"></i></a>
-                    <a href="#"><i className="pi pi-instagram text-xl hover:text-orange-400"></i></a>
-                    <a href="#"><i className="pi pi-youtube text-xl hover:text-orange-400"></i></a>
-                    <a href="#"><i className="pi pi-linkedin text-xl hover:text-orange-400"></i></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i className="pi pi-twitter text-xl hover:text-orange-400"></i></a>
+                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"><i className="pi pi-instagram text-xl hover:text-orange-400"></i></a>
+                    <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer"><i className="pi pi-youtube text-xl hover:text-orange-400"></i></a>
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"><i className="pi pi-linkedin text-xl hover:text-orange-400"></i></a>
                 </div>
             </div>
 
             {/* Columns */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-16 text-sm">
-            {/* Use Cases */}
+            {/* درباره ایونتیفای */}
                 <div>
-                    <h4 className="font-semibold text-gray-300 mb-3">Use cases</h4>
+                    <h4 className="font-semibold text-gray-300 mb-3">About Eventify</h4>
                     <ul className="flex flex-col gap-2 text-gray-400">
-                        <li><Link to="#">UI design</Link></li>
-                        <li><Link to="#">UX design</Link></li>
-                        <li><Link to="#">Wireframing</Link></li>
-                        <li><Link to="#">Diagramming</Link></li>
-                        <li><Link to="#">Brainstorming</Link></li>
-                        <li><Link to="#">Online whiteboard</Link></li>
-                        <li><Link to="#">Team collaboration</Link></li>
+                        <li>Eventify is your all-in-one platform for discovering, creating, and managing events with your friends and teams.</li>
+                        <li>Plan, join, and organize events easily with a modern and intuitive interface.</li>
+                        <li>Collaborate with your community, share ideas, and never miss an important moment.</li>
+                        <li>Designed for teams, friends, and anyone who loves to connect and celebrate together.</li>
                     </ul>
                 </div>
 
@@ -40,31 +37,27 @@ export default function HomeFooter() {
                 <div>
                     <h4 className="font-semibold text-gray-300 mb-3">Explore</h4>
                     <ul className="flex flex-col gap-2 text-gray-400">
-                        <li><Link to="#">Design</Link></li>
-                        <li><Link to="#">Prototyping</Link></li>
-                        <li><Link to="#">Development features</Link></li>
-                        <li><Link to="#">Design systems</Link></li>
-                        <li><Link to="#">Collaboration features</Link></li>
-                        <li><Link to="#">Design process</Link></li>
-                        <li><Link to="#">FigJam</Link></li>
+                        <li><Link to="/ExplorePage">Discover Events</Link></li>
+                        <li><Link to="/MyEventsPage">My Events</Link></li>
+                        <li><Link to="/CommunityPage">Community</Link></li>
+                        <li><Link to="/CreateEvent">Create Event</Link></li>
+                        <li><Link to="/ProfilePage">Profile</Link></li>
                     </ul>
                 </div>
 
-                {/* Resources */}
-                    <div>
-                        <h4 className="font-semibold text-gray-300 mb-3">Resources</h4>
-                        <ul className="flex flex-col gap-2 text-gray-400">
-                            <li><Link to="#">Blog</Link></li>
-                            <li><Link to="#">Best practices</Link></li>
-                            <li><Link to="#">Colors</Link></li>
-                            <li><Link to="#">Color wheel</Link></li>
-                            <li><Link to="#">Support</Link></li>
-                            <li><Link to="#">Developers</Link></li>
-                            <li><Link to="#">Resource library</Link></li>
-                        </ul>
-                    </div>
+                {/* Contact & Support */}
+                <div>
+                    <h4 className="font-semibold text-gray-300 mb-3">Contact & Support</h4>
+                    <ul className="flex flex-col gap-2 text-gray-400">
+                        <li>Email: <a href="mailto:support@eventify.com" className="hover:text-orange-400">support@eventify.com</a></li>
+                        <li>Instagram: <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400">@eventify</a></li>
+                        <li>LinkedIn: <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400">Eventify Team</a></li>
+                        <li>Help Center</li>
+                        <li>FAQ</li>
+                    </ul>
                 </div>
             </div>
+        </div>
         </footer>
     );
 }

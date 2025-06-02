@@ -15,7 +15,6 @@ const UpcomingEvents = ({ events }) => {
         type: null,
         tag: null,
     });
-
     const filterOptions = {
         team: ['Tech', 'Marketing', 'Design', 'Business'],
         friend: ['Ali', 'Mina123', 'Coder77'],
@@ -23,17 +22,16 @@ const UpcomingEvents = ({ events }) => {
         tag: ['ux', 'ads', 'frontend'],
     };
     const [page, setPage] = useState(1);
-
     return (
-        <div className="w-2/3  justify-center items-center">
+        <div className="w-2/3 justify-center items-center">
             <div className="w-full text-white">
-                <div className="w-full flex flex-row justify-between pb-1">
+                <div className="w-full flex flex-row flex-wrap md:flex-nowrap justify-between pb-1 items-center gap-4">
                 {/* Title */}
-                    <h2 className='w-1/4 font-bold flex items-center py-5 text-white text-lg'>My Events</h2>
+                    <h2 className='w-auto min-w-[120px] font-bold flex items-center py-5 text-white text-lg whitespace-nowrap'>My Events</h2>
                 {/* Filters + Button */}
-                    <div className='w-3/4 flex flex-row gap-4 items-end justify-end'>
+                    <div className='flex-1 flex flex-row flex-wrap gap-4 items-end justify-end min-w-0'>
                         {['team', 'friend', 'type', 'tag'].map((field) => (
-                            <div key={field} className="flex flex-col">
+                            <div key={field} className="flex flex-col min-w-[120px] justify-end">
                                 <label htmlFor={field} className="block text-sm mb-2 text-white capitalize">{field}</label>
                                 <Dropdown
                                     id={field}
@@ -41,7 +39,7 @@ const UpcomingEvents = ({ events }) => {
                                     options={filterOptions[field].map(opt => ({ label: opt, value: opt }))}
                                     onChange={(e) => setFilters(prev => ({ ...prev, [field]: e.value }))}
                                     placeholder={`Select ${field}`}
-                                    className="w-48"
+                                    className="w-48 min-w-[100px]"
                                     panelClassName="bg-[#0E141E] text-white"
                                     dropdownIcon="pi pi-chevron-down"
                                     style={{
@@ -55,7 +53,7 @@ const UpcomingEvents = ({ events }) => {
                             </div>
                         ))}
                         {/* Reset Button */}
-                        <div className="flex items-end h-full">
+                        <div className="flex flex-col justify-end min-w-[120px]">
                             <button className='w-40 bg-[#21333F] text-white h-11 rounded-lg' 
                             onClick={(e)=>setFilters({        
                                 team: null,

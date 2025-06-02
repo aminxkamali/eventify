@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from 'primereact/card';
 
 const Categories = [
     { id: 1, CategoryName: 'Tech', color: '#1DABF0' },
@@ -18,7 +17,7 @@ export default function EventsCategory() {
                     Browse by Category
                 </span>
                 <span className="text-base text-[#0F08F1] font-italic hover:cursor-pointer xl:text-base lg:text-sm md:text-xs sm:text-xxs">
-                    <a href="/Categories">View all</a>
+                    <a href="/ExplorePage">View all</a>
                 </span>
             </div>
 
@@ -27,7 +26,6 @@ export default function EventsCategory() {
                     <div
                         key={category.id}
                         className="overflow-hidden border-none rounded-none bg-white hover:cursor-pointer justify-center items-center p-4"
-                        bodyClassName="p-0"
                     >
                         {/* Circular color icon for category */}
                         <div

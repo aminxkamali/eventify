@@ -1,19 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // اگر از react-router-dom v6 استفاده می‌کنی
 import eventifyLogo from '../../icons/eventifyLogo.png';
 import { Link } from 'react-router-dom';
-export default function TeamsPageHeader() {
-    const navigate = useNavigate();
-
-    const handleLogout = () => {
-        // حذف اطلاعات ذخیره‌شده
-        localStorage.removeItem('user');
-        localStorage.removeItem('token'); // یا هر چیزی که ذخیره کردی
-
-        // انتقال به صفحه ورود
-        navigate('/');
-    };
-
+export default function CommunityPageHeader() {
     return (
         <header className="bg-[#0E141E] pr-4 pl-4">
             <div className='flex flex-row items-center justify-between'>
@@ -22,16 +10,14 @@ export default function TeamsPageHeader() {
                     <h1 className="text-white text-2xl font-bold font-sans">Eventify</h1>
                 </div>
                 <div className='flex flex-row items-center space-x-4 gap-2'>
-                    <Link to="/HomePage" className="text-white hover:text-gray-300">Home</Link>
-                    <Link to="/events" className="text-white hover:text-gray-300">Explore</Link>
-                    <Link to="/MyEventsPage" className="text-white hover:text-gray-300">My Events</Link>
-                    <Link to="/FriendsPage" className="hover:text-orange-400">Friends</Link>
-                    <button
-                        onClick={handleLogout}
-                        className="text-white hover:text-red-500 transition-colors duration-200"
-                    >
-                        Logout
-                    </button>
+                    <nav className="flex items-center gap-6 text-white text-base font-medium">
+                        <Link to="/HomePage" className="hover:text-orange-400">Home</Link>
+                        <Link to="/ExplorePage" className="hover:text-orange-400">Explore</Link>
+                        <Link to="/MyEventsPage" className="hover:text-orange-400">My Events</Link>
+                        <Link to="/" className="hover:text-orange-400" onClick={() => { /* TODO: handle logout with API later */ }}>
+                            Logout
+                        </Link>
+                    </nav>
                 </div>
                 <div className='flex items-center gap-3'>
                     <Link to="/CreateEvent">

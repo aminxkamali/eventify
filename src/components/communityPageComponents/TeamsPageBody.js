@@ -10,10 +10,10 @@ const TeamsPage = () => {
         { name: 'Dev Team', role: 'Admin' },
         { name: 'Design Team', role: 'Member' },
         { name: 'Marketing Team', role: 'Editor' },
-                { name: 'Dev Team', role: 'Admin' },
+        { name: 'Dev Team', role: 'Admin' },
         { name: 'Design Team', role: 'Member' },
         { name: 'Marketing Team', role: 'Editor' },
-                { name: 'Dev Team', role: 'Admin' },
+        { name: 'Dev Team', role: 'Admin' },
         { name: 'Design Team', role: 'Member' },
         { name: 'Marketing Team', role: 'Editor' }
     ]);
@@ -38,26 +38,28 @@ const handleCreateTeam = () => {
 };
 
     const [teamName, setTeamName] = useState('');
-    const [memberUsername, setMemberUsername] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
-
-
-
     const filteredTeams = teams.filter(team =>
         team.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     return (
         <div className="w-full h-screen px-12 py-6 text-white bg-[#060C16]">
-            <h1 className="text-3xl font-bold text-center mb-6">Teams</h1>
             <div className='border border-[#21333F] pb-1 mb-8'>
+                <h1 className="text-3xl font-bold text-center mb-6 mt-4">Teams List</h1>
                 {/* Search Section */}
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-4 relative">
+                    <span className="absolute left-6 top-1/2 -translate-y-1/2 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2" fill="none" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                    </span>
                     <InputText
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Search teams..."
-                        className="w-full  h-10 m-4 p-2 rounded-lg bg-[#060C16] text-white border border-[#21333F]  outline-none"
+                        className="w-full h-10 m-4 p-2 pl-10 rounded-lg bg-[#060C16] text-white border border-[#21333F] outline-none"
                     />
                 </div>
 

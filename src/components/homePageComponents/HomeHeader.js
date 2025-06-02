@@ -11,11 +11,12 @@ return (
             </span>
         </div>
         <nav className="flex items-center gap-6 text-white text-base font-medium">
-            <Link to="/HomePage" className="hover:text-orange-400">Home</Link>
-            <Link to="/explore" className="hover:text-orange-400">Explore</Link>
+            <Link to="/ExplorePage" className="hover:text-orange-400">Explore</Link>
             <Link to="/MyEventsPage" className="hover:text-orange-400">My Events</Link>
-            <Link to="/FriendsPage" className="hover:text-orange-400">Friends</Link>
-            <Link to="/TeamsPage" className="hover:text-orange-400">Teams</Link>
+            <Link to="/CommunityPage" className="hover:text-orange-400">Community</Link>
+            <Link to="/" className="hover:text-orange-400" onClick={() => { /* TODO: handle logout with API later */ }}>
+                Logout
+            </Link>
         </nav>
         <div className="flex items-center gap-3">
             <Link to='/CreateEvent' >

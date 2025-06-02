@@ -1,4 +1,3 @@
-
 import React from 'react';
 import EventsPageHeader from '../components/myEventsPageComponents/EventsPageHeader'
 import CalenderSection from '../components/myEventsPageComponents/calenderSection';
@@ -49,9 +48,9 @@ const sampleEvents = [
 
 const MyEventsPage = () => {
     return (
-        <div className=" flex flex-col text-black ">
+        <div className="min-h-screen max-h-screen h-screen overflow-hidden flex flex-col text-black">
             <EventsPageHeader />
-            <div className='flex flex-row bg-[#060C16] h-screen w-full px-2 text-white justify-around items-center '>
+            <div className='flex flex-row bg-[#060C16] h-full w-full px-2 text-white justify-around items-center'>
                 <CalenderSection />
                 <UpcomingEvents events={sampleEvents} />
             </div>

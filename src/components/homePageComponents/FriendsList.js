@@ -23,7 +23,7 @@ const FriendsList = () => {
                     Browse by Friends list
                 </span>
                 <span
-                    onClick={() => navigate('/FriendsPage')}
+                    onClick={() => navigate('/CommunityPage')}
                     className="text-base text-[#0F08F1] font-italic hover:cursor-pointer xl:text-base lg:text-sm md:text-xs sm:text-xxs"
                 >
                     View all
@@ -37,7 +37,6 @@ const FriendsList = () => {
                         key={friend.id} // Unique key for each friend card
                         className="w-[10%] rounded-xl overflow-hidden shadow-sm bg-white hover:bg-gray-300 hover:cursor-pointer flex flex-col justify-center items-center p-4"
                         onClick={() => navigate('/FriendsPage')}
-                        bodyClassName="p-0"
                     >
                         {/* Circle profile placeholder */}
                         <div
