@@ -49,7 +49,7 @@ const handleSubmit = async (e) => {
 };
 
 return (
-    <form onSubmit={handleSubmit} className="w-96 bg-[#0E141E] ">
+    <form onSubmit={handleSubmit} className="w-96 ">
     <div className="flex flex-col items-center mb-6">
         <div className="flex flex-row items-center mb-6">
         <img src={eventifyLogo} className="w-20 h-20" alt="logo" />
