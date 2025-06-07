@@ -17,6 +17,7 @@ import LandingPage from './pages/LandingPage';
 import ChatWidget from './components/ChatWidget';
 import ChangePasswordMethod from './pages/ChangePasswordMethod';
 import ChangePasswordWithEmailPage from './pages/ChangePasswordWithEmailPage';
+import ChangePasswordCurrentPage from './pages/ChangePasswordCurrentPage';
 function App() {
   // مسیرهایی که نباید ChatWidget نمایش داده شود
   const hiddenChatRoutes = [
@@ -26,6 +27,9 @@ function App() {
     '/ForgetPasswordPage',
     '/resetPasswordSuccessPage',
     '/passwordResetErrorPage',
+    '/change-password-method',
+    '/change-password-email',
+    '/change-password-current',
   ];
   const location = window.location;
   const shouldShowChat = !hiddenChatRoutes.includes(location.pathname);
@@ -48,6 +52,7 @@ function App() {
           <Route path='/CommunityPage' element={<CommunityPage />} />
           <Route path="/change-password-method" element={<ChangePasswordMethod />} />
           <Route path="/change-password-email" element={<ChangePasswordWithEmailPage />} />
+          <Route path="/change-password-current" element={<ChangePasswordCurrentPage />} />
         </Routes>
         {shouldShowChat && <ChatWidget />}
       </BrowserRouter>
