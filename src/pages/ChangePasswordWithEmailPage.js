@@ -30,7 +30,7 @@ return (
     <div className='bg-[#0E141E] min-h-screen flex flex-col items-center justify-center'>
         <form
         onSubmit={handleSubmit}
-        className="w-96 max-w-md mx-auto p-4 rounded text-white"
+        className="w-96 max-w-md mx-auto p-4 rounded text-white animate-fade-in-up"
         >
         <div className="flex flex-col items-center mb-6">
             <div className="flex flex-row items-center mb-6">
@@ -72,3 +72,14 @@ return (
     </div>
 );
 }
+
+/* Tailwind animation utility (add to your global CSS if not already present) */
+/*
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+*/

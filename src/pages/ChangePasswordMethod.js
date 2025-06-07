@@ -22,7 +22,7 @@ export default function ChangePasswordMethod() {
                     onClick={() => navigate('/change-password-current')}
                 />
                 <div className="flex items-center justify-center">
-                    <span className="text-gray-400">or</span>
+                    <span className="w-full border-t border-gray-100"></span>
                 </div>
                 <Button
                     label="Back to profile"
