@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# Eventify React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Eventify is a modern, full-featured event management and discovery web application built with React, TailwindCSS, and PrimeReact. The project is designed for both end-users and admins to create, explore, and manage events with a beautiful, responsive, and interactive UI.
 
-## Available Scripts
+## Features
+- **Authentication:** Sign up, login, forget/reset password, and protected routes using React Context.
+- **Profile Management:** Update profile info, upload avatar (with image validation), and delete account with confirmation dialogs.
+- **Event Management:** Create, explore, and search for events. Event cards, categories, and filtering are modular and reusable.
+- **Search Experience:** Persistent search state between pages, with query string support and real-time search bar updates.
+- **Chat Widget:** Online support chat with WebSocket integration, always available except on auth/landing pages.
+- **Admin Shortcut:** Login as admin with `admin@gmail.com` / `admin` for quick access to HomePage.
+- **UI/UX:** Modern, animated transitions (fade-in, slide-up), custom theming, and accessibility best practices.
+- **Component Structure:** Highly modular, with separate folders for forms, inputs, page components, and context.
+- **Responsive Design:** Mobile-friendly layouts using TailwindCSS utility classes.
+- **PrimeReact Integration:** Consistent, accessible UI elements (inputs, buttons, dialogs, etc.)
 
-In the project directory, you can run:
+## Tech Stack
+- **React** (with hooks and functional components)
+- **TailwindCSS** (utility-first CSS framework)
+- **PrimeReact** & **PrimeIcons** (UI components)
+- **React Router DOM** (routing)
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
+- Node.js (v16 or higher recommended)
+- npm or yarn
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aminxkamali/eventify.git
+   cd eventify-react
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### `npm test`
+## Project Structure
+```
+src/
+  components/         # Reusable and page-specific components
+    homePageComponents/   # Home page widgets (header, footer, event lists, etc.)
+    explorePageComponents/# Explore page widgets (search, categories, event cards, etc.)
+    ...
+  Forms/              # All form components (SignUp, Login, Profile, ChangePassword, etc.)
+  pages/              # Page-level components (Home, Explore, Profile, etc.)
+  inputs/             # Input field components (PasswordField, TextField, etc.)
+  icons/              # Static image assets (logos, icons)
+  context/            # React context (Auth, etc.)
+  index.js, App.js    # Entry and root components
+  index.css           # Global styles (TailwindCSS, custom animations)
+  custom-primereact-overrides.css # Custom PrimeReact style overrides
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Key Files & Folders
+- `src/components/ChatWidget.js`: Floating chat widget with WebSocket support.
+- `src/Forms/SignUpForm.js`, `LoginForm.js`, `profileForm.js`: Modular, animated forms with validation and feedback.
+- `src/pages/ChangePasswordWithEmailPage.js`, `ChangePasswordCurrentPage.js`: Password reset flows with animation and validation.
+- `src/components/homePageComponents/DiscoverEventsHeader.js`: Search bar with navigation and persistent state.
+- `src/components/explorePageComponents/ExploreSearch.js`: Search input synced with query string for seamless UX.
+- `src/context/AuthContext.js`: Authentication logic and context provider.
+- `src/index.css`: TailwindCSS base, custom animations (e.g., `animate-fade-in-up`).
 
-### `npm run build`
+## Customization
+- **WebSocket Endpoint:** Edit `src/components/ChatWidget.js` to set your chat server endpoint.
+- **Theme & Animations:** Update `tailwind.config.js` and `index.css` for custom colors, fonts, and animations.
+- **Admin Access:** Use `admin@gmail.com` / `admin` for quick admin login (see `LoginForm.js`).
+- **Routing:** All routes are managed in `App.js` using React Router DOM.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deployment
+You can deploy this app to Vercel, Netlify, or any static hosting that supports React. To build for production:
+```bash
+npm run build
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Repository
+This project is hosted on GitHub: [https://github.com/aminxkamali/eventify.git](https://github.com/aminxkamali/eventify.git)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
+This project is for educational/demo purposes. For production use, please review and update security/authentication logic, API endpoints, and environment variables.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to fork, contribute, and customize for your needs!
