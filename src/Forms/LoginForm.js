@@ -1,21 +1,29 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
 import eventifyLogo from "../icons/eventifyLogo.png"
 import PasswordField from '../inputs/PasswordField';
 
 export default function LoginForm() {
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
+const [errors, setErrors] = useState({});
 const navigate = useNavigate();
-const { login, setLoading } = useAuth();
+
+const validate = () => {
+    const newErrors = {};
+    if (!email.trim()) newErrors.email = 'Email is required.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = 'Invalid email format.';
+    if (!password) newErrors.password = 'Password is required.';
+    return newErrors;
+};
 
 const handleSubmit = async (e) => {
     e.preventDefault();
+    const validationErrors = validate();
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) return;
     try {
-        setLoading(true);
         if (email === 'admin@gmail.com' && password === 'admin') {
-            setLoading(false);
             navigate('/HomePage');
             return;
         }
@@ -33,9 +41,7 @@ const handleSubmit = async (e) => {
       // } else {
       //   alert('Login failed');
       // }
-        setLoading(false);
         } catch (err) {
-            setLoading(false);
         
             alert('Login failed');
         }
@@ -53,15 +59,16 @@ return (
             Welcome back! Please enter your details.
             </p>
         </div>
-
-        <label className="block text-sm mb-1">Email</label>
-        <input
-            type="email"
-            className="w-full h-11 mb-4 p-2 rounded-lg bg-[#060C16] border border-[#21333F] mt-1 focus:border-white outline-none transition-colors duration-200"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-        />
-
+        <div className="mb-4">
+            <label className="block text-sm mb-1">Email</label>
+            <input
+                type="email"
+                className="w-full h-11 p-2 rounded-lg bg-[#060C16] border border-[#21333F] mt-1 focus:border-white outline-none transition-colors duration-200"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+            {errors.email && <span className="text-red-400 text-xs">{errors.email}</span>}
+        </div>
         <div className="flex justify-between items-center">
             <label className="block text-sm mb-1">Password</label>
             <a href="/ForgetPasswordPage" className="text-xs text-blue-400">
@@ -75,14 +82,13 @@ return (
             feedback={false}
             className="w-full h-11 mb-8 p-2 rounded-lg bg-[#060C16] border border-[#21333F] mt-1 focus:border-white outline-none transition-colors duration-200 mb-8"
         />
-
+        {errors.password && <span className="text-red-400 text-xs">{errors.password}</span>}
         <button
             type="submit"
             className="w-full mt-6 bg-orange-500 hover:bg-orange-600 active:bg-orange-400 p-2 rounded-lg text-white font-semibold cursor-pointer transition-colors duration-200"
         >
             Log in
         </button>
-
         <p className="text-center text-sm text-gray-400 mt-4">
             Don’t have an account?{' '}
             <a className="text-blue-400" href="/signup">

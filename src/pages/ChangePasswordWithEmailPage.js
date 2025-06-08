@@ -7,7 +7,6 @@ const [email, setEmail] = useState('');
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
         // TODO: Replace this with your real API call
         // Example:

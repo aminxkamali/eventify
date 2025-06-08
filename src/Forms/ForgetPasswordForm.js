@@ -4,10 +4,20 @@ import eventifyLogo from'../icons/eventifyLogo.png'; // Adjust the path as neces
 export default function ForgetPasswordForm() {
 const navigate = useNavigate();
 const [email, setEmail] = useState('');
+const [errors, setErrors] = useState({});
+
+const validate = () => {
+    const newErrors = {};
+    if (!email.trim()) newErrors.email = 'Email is required.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = 'Invalid email format.';
+    return newErrors;
+};
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const validationErrors = validate();
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) return;
     try {
         // TODO: Replace this with your real API call
         // Example:
@@ -54,6 +64,7 @@ return (
         onChange={(e) => setEmail(e.target.value)}
         required
     />
+    {errors.email && <span className="text-red-400 text-xs">{errors.email}</span>}
 
     <button
         type="submit"
@@ -63,7 +74,7 @@ return (
     </button>
 
     <p className="text-center text-sm text-gray-400 mt-4">
-        <a href="/" className="text-blue-400">
+        <a href="/Login" className="text-blue-400">
         Back to login
         </a>
     </p>

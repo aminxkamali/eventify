@@ -22,6 +22,7 @@ function App() {
   // مسیرهایی که نباید ChatWidget نمایش داده شود
   const hiddenChatRoutes = [
     '/',
+    '/Login',
     '/login',
     '/signup',
     '/ForgetPasswordPage',
@@ -39,11 +40,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/SignUp" element={<SignupPage />} />
           <Route path="/ForgetPasswordPage" element={<ForgetPasswordPage />} />
-          <Route path="/resetPasswordSuccessPage" element={<ResetPasswordSuccessPage />} />
-          <Route path="/passwordResetErrorPage" element={<PasswordResetErrorPage />} />
+          <Route path="/ResetPasswordSuccessPage" element={<ResetPasswordSuccessPage />} />
+          <Route path="/PasswordResetErrorPage" element={<PasswordResetErrorPage />} />
           <Route path="/HomePage" element={<HomePage />} />
           <Route path='/ProfilePage' element={<ProfilePage/>}/>
           <Route path="/CreateEvent" element={<CreateEventPage/>} />

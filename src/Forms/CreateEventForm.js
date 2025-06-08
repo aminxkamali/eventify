@@ -39,17 +39,35 @@ const CreateEventPage = () => {
         Teams: [],
         Note: "",
     })
+    const [errors, setErrors] = useState({});
+
+    const validate = () => {
+        const newErrors = {};
+        if (!eventForm.Title.trim()) newErrors.Title = 'Title is required.';
+        if (!eventForm.Description.trim()) newErrors.Description = 'Description is required.';
+        if (!eventForm.Owner.trim()) newErrors.Owner = 'Owner is required.';
+        if (!eventForm.Type) newErrors.Type = 'Type is required.';
+        if (eventForm.Type === 'Todo') {
+            if (!eventForm.EndTime) newErrors.EndTime = 'Duo Time is required.';
+        } else {
+            if (!eventForm.StartTime) newErrors.StartTime = 'Start Time is required.';
+            if (!eventForm.EndTime) newErrors.EndTime = 'End Time is required.';
+            if (eventForm.StartTime && eventForm.EndTime && new Date(eventForm.EndTime) <= new Date(eventForm.StartTime)) {
+                newErrors.EndTime = 'End Time must be after Start Time.';
+            }
+        }
+        if (!eventForm.Tags || eventForm.Tags.length === 0) newErrors.Tags = 'At least one tag is required.';
+        if (!eventForm.members || eventForm.members.length === 0) newErrors.members = 'At least one member is required.';
+        if (!eventForm.Teams || eventForm.Teams.length === 0) newErrors.Teams = 'At least one team is required.';
+        // Note is optional
+        return newErrors;
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const isEmpty = Object.entries(eventForm).some(([key, value]) => {
-            if (Array.isArray(value)) return value.length === 0;
-            if (typeof value === 'string') return value.trim() === '';
-            return value === null || value === undefined;
-        });
-
-        if (isEmpty) {
+        const validationErrors = validate();
+        setErrors(validationErrors);
+        if (Object.keys(validationErrors).length > 0) {
             setAlert({ type: 'error', message: 'Please fill out all fields correctly.' });
             setTimeout(() => setAlert({ type: '', message: '' }), 3000);
             return;
@@ -78,9 +96,7 @@ const CreateEventPage = () => {
 
     return (
         <form className='w-full h-full bg-[#0E141E]  flex flex-col  '>
-            {alert.type === 'error' && <ErrorAlert message={alert.message} />}
-            {alert.type === 'success' && <SuccessAlert message={alert.message} />}
-            <h1 className="flex justify-center items-center mt-4 mb-4">
+            <h1 className="flex justify-center items-center mt-4 mb-2">
                 <span className="text-2xl font-bold text-white border border-white rounded-xl px-6 py-2 text-center">
                     Create your own event
                 </span>
@@ -95,6 +111,7 @@ const CreateEventPage = () => {
                         onChange={(e) => setEventForm({ ...eventForm, Title: e.target.value })}
                         className="w-full h-11 p-2 rounded-lg bg-[#060C16] text-white  focus:border-white outline-none transition-colors duration-200"
                     />
+                    {errors.Title && <span className="text-red-400 text-xs">{errors.Title}</span>}
                 </div>
                 <div className="w-1/3">
                     <label className="block text-sm mb-2 text-white" htmlFor="Description">Description</label>
@@ -105,6 +122,7 @@ const CreateEventPage = () => {
                         onChange={(e) => setEventForm({ ...eventForm, Description: e.target.value })}
                         className="w-full h-11 p-2 rounded-lg bg-[#060C16] text-white focus:border-white outline-none transition-colors duration-200"
                     />
+                    {errors.Description && <span className="text-red-400 text-xs">{errors.Description}</span>}
                 </div>
             </div>
             <div className='w-full mb-2 flex flex-row justify-center gap-1 '>
@@ -117,6 +135,7 @@ const CreateEventPage = () => {
                         onChange={(e) => setEventForm({ ...eventForm, Owner: e.target.value })}
                         className="w-full h-11 p-2 rounded-lg bg-[#060C16] text-white  focus:border-white outline-none transition-colors duration-200"
                     />
+                    {errors.Owner && <span className="text-red-400 text-xs">{errors.Owner}</span>}
                 </div>
                 <div className="w-1/3">
                     <label className="block text-sm mb-2 text-white" htmlFor="Type">Type</label>
@@ -147,11 +166,12 @@ const CreateEventPage = () => {
                             borderRadius: '0.5rem'
                         }}
                     />
+                    {errors.Type && <span className="text-red-400 text-xs">{errors.Type}</span>}
                 </div>
             </div>
                 <div className='w-full mb-2 flex flex-row justify-center gap-1'>
                     {eventForm.Type === "Todo" ? (
-                        <div className="w-2/3 mb-4">
+                        <div className="w-2/3 mb-2">
                             <label className="block text-sm mb-2 text-white" htmlFor="DuoTime">Duo Time</label>
                             <Calendar
                                 id="DuoTime"
@@ -168,10 +188,11 @@ const CreateEventPage = () => {
                                 className="w-full"
                                 inputClassName="w-full h-11 p-2 pl-10 rounded-lg bg-[#060C16] text-white focus:border-white outline-none transition-colors duration-200"
                             />
+                            {errors.EndTime && <span className="text-red-400 text-xs">{errors.EndTime}</span>}
                         </div>
                     ) : (
                         <>
-                            <div className="w-1/3 mb-4">
+                            <div className="w-1/3 mb-2">
                                 <label className="block text-sm mb-2 text-white" htmlFor="StartTime">Start Time</label>
                                 <Calendar
                                     id="StartTime"
@@ -185,8 +206,9 @@ const CreateEventPage = () => {
                                     className="w-full"
                                     inputClassName="w-full h-11 p-2 pl-10 rounded-lg bg-[#060C16] text-white  focus:border-white outline-none transition-colors duration-200"
                                 />
+                                {errors.StartTime && <span className="text-red-400 text-xs">{errors.StartTime}</span>}
                             </div>
-                            <div className="w-1/3 mb-4">
+                            <div className="w-1/3 mb-2">
                                 <label className="block text-sm mb-2 text-white" htmlFor="EndTime">End Time</label>
                                 <Calendar
                                     id="EndTime"
@@ -199,27 +221,29 @@ const CreateEventPage = () => {
                                     className="w-full"
                                     inputClassName="w-full h-11 p-2 pl-10 rounded-lg bg-[#060C16] text-white focus:border-white outline-none transition-colors duration-200"
                                 />
+                                {errors.EndTime && <span className="text-red-400 text-xs">{errors.EndTime}</span>}
                             </div>
                         </>
                     )}
                 </div>
 
                 <div className='w-full mb-2 flex flex-row justify-center gap-1'>
-                    <div className='w-2/3 mb-4 card p-fluid'>
+                    <div className='w-2/3 mb-2 p-fluid'>
                         <label className="block text-sm mb-2 text-white" htmlFor="Tags">Tags</label>
                         <Chips
                             id='Tags'
                             value={eventForm.Tags}
                             placeholder='input your tags'
                             onChange={(e) => setEventForm({ ...eventForm, Tags: e.value })}
-                            className="w-full h-11 rounded-lg bg-[#060C16] transition-colors duration-200"
-                            inputClassName="w-full h-11 px-3 text-white bg-[#060C16] outline-none border-none"
+                            className="w-full h-11 rounded-lg bg-[#0E141E] transition-colors duration-200"
+                            inputClassName="w-full h-11 px-3 py-2 text-white bg-[#0E141E] outline-none border-none"
                         />
+                        {errors.Tags && <span className="text-red-400 text-xs">{errors.Tags}</span>}
                     </div>
                 </div>
 
             <div className='w-full mb-2 flex flex-row justify-center gap-1'>
-                <div className='w-1/3 mb-4'>
+                <div className='w-1/3 mb-2'>
                     <label className="block text-sm mb-2 text-white" htmlFor="Members">Members</label>
                     <MultiSelect
                         id="Members"
@@ -239,9 +263,10 @@ const CreateEventPage = () => {
                         }}
                         filter
                     />
+                    {errors.members && <span className="text-red-400 text-xs">{errors.members}</span>}
                 </div>
 
-                <div className='w-1/3 mb-4'>
+                <div className='w-1/3 mb-2'>
                     <label className="block text-sm mb-2 text-white" htmlFor="Teams">Teams</label>
                     <MultiSelect
                         id="Teams"
@@ -261,11 +286,12 @@ const CreateEventPage = () => {
                         }}
                         filter
                     />
+                    {errors.Teams && <span className="text-red-400 text-xs">{errors.Teams}</span>}
                 </div>
             </div>
 
             <div className='w-full mb-2 flex flex-row justify-center gap-4'>
-                <div className='w-2/3 mb-4'>
+                <div className='w-2/3 mb-2'>
                     <label className="block text-sm mb-2 text-white" htmlFor="Note">Note</label>
                     <textarea
                     placeholder='Add a note...'
@@ -278,7 +304,7 @@ const CreateEventPage = () => {
             </div>
             
             <div className='w-full mb-6 flex justify-center'>
-                <div className='w-2/3 mb-4'>
+                <div className='w-2/3 mb-2'>
                 <button
                     type="submit"
                     onClick={handleSubmit}
