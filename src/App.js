@@ -19,7 +19,6 @@ import ChangePasswordMethod from './pages/ChangePasswordMethod';
 import ChangePasswordWithEmailPage from './pages/ChangePasswordWithEmailPage';
 import ChangePasswordCurrentPage from './pages/ChangePasswordCurrentPage';
 function App() {
-  // مسیرهایی که نباید ChatWidget نمایش داده شود
   const hiddenChatRoutes = [
     '/',
     '/Login',
