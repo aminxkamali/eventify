@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignUpPage';
 import ForgetPasswordPage from './pages/ForgetPasswordPage';
@@ -18,7 +18,8 @@ import ChatWidget from './components/ChatWidget';
 import ChangePasswordMethod from './pages/ChangePasswordMethod';
 import ChangePasswordWithEmailPage from './pages/ChangePasswordWithEmailPage';
 import ChangePasswordCurrentPage from './pages/ChangePasswordCurrentPage';
-function App() {
+
+function AppContent() {
   const hiddenChatRoutes = [
     '/',
     '/Login',
@@ -31,30 +32,38 @@ function App() {
     '/change-password-email',
     '/change-password-current',
   ];
-  const location = window.location;
+  const location = useLocation();
   const shouldShowChat = !hiddenChatRoutes.includes(location.pathname);
 
   return (
+    <>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/SignUp" element={<SignupPage />} />
+        <Route path="/ForgetPasswordPage" element={<ForgetPasswordPage />} />
+        <Route path="/ResetPasswordSuccessPage" element={<ResetPasswordSuccessPage />} />
+        <Route path="/PasswordResetErrorPage" element={<PasswordResetErrorPage />} />
+        <Route path="/HomePage" element={<HomePage />} />
+        <Route path='/ProfilePage' element={<ProfilePage/>}/>
+        <Route path="/CreateEvent" element={<CreateEventPage/>} />
+        <Route path='/MyEventsPage' element={<MyEventsPage/>}/>
+        <Route path='/ExplorePage' element={<ExplorePage />} />
+        <Route path='/CommunityPage' element={<CommunityPage />} />
+        <Route path="/change-password-method" element={<ChangePasswordMethod />} />
+        <Route path="/change-password-email" element={<ChangePasswordWithEmailPage />} />
+        <Route path="/change-password-current" element={<ChangePasswordCurrentPage />} />
+      </Routes>
+      {shouldShowChat && <ChatWidget />}
+    </>
+  );
+}
+
+function App() {
+  return (
     <AuthProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/Login" element={<LoginPage />} />
-          <Route path="/SignUp" element={<SignupPage />} />
-          <Route path="/ForgetPasswordPage" element={<ForgetPasswordPage />} />
-          <Route path="/ResetPasswordSuccessPage" element={<ResetPasswordSuccessPage />} />
-          <Route path="/PasswordResetErrorPage" element={<PasswordResetErrorPage />} />
-          <Route path="/HomePage" element={<HomePage />} />
-          <Route path='/ProfilePage' element={<ProfilePage/>}/>
-          <Route path="/CreateEvent" element={<CreateEventPage/>} />
-          <Route path='/MyEventsPage' element={<MyEventsPage/>}/>
-          <Route path='/ExplorePage' element={<ExplorePage />} />
-          <Route path='/CommunityPage' element={<CommunityPage />} />
-          <Route path="/change-password-method" element={<ChangePasswordMethod />} />
-          <Route path="/change-password-email" element={<ChangePasswordWithEmailPage />} />
-          <Route path="/change-password-current" element={<ChangePasswordCurrentPage />} />
-        </Routes>
-        {shouldShowChat && <ChatWidget />}
+        <AppContent />
       </BrowserRouter>
     </AuthProvider>
   );
