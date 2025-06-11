@@ -18,7 +18,7 @@ import ChatWidget from './components/ChatWidget';
 import ChangePasswordMethod from './pages/ChangePasswordMethod';
 import ChangePasswordWithEmailPage from './pages/ChangePasswordWithEmailPage';
 import ChangePasswordCurrentPage from './pages/ChangePasswordCurrentPage';
-
+import ChangeUsernamePage from './pages/ChangeUsernamePage';
 function AppContent() {
   const hiddenChatRoutes = [
     '/',
@@ -53,6 +53,7 @@ function AppContent() {
         <Route path="/change-password-method" element={<ChangePasswordMethod />} />
         <Route path="/change-password-email" element={<ChangePasswordWithEmailPage />} />
         <Route path="/change-password-current" element={<ChangePasswordCurrentPage />} />
+        <Route path="/change-username" element={<ChangeUsernamePage />} />
       </Routes>
       {shouldShowChat && <ChatWidget />}
     </>
