@@ -132,8 +132,8 @@ export default function ProfileForm() {
             {/* Main form */}
             <div className="flex-1 flex flex-col justify-center px-16">
                 <form className="space-y-6 mb-6" onSubmit={handleProfileSubmit}>
-                    <div className="w-full mb-6 flex items-end gap-4" style={{alignItems:'flex-end'}}>
-                        <div className="flex-1">
+                    <div className="w-full mb-6 flex items-end gap-6" style={{alignItems:'flex-end'}}>
+                        <div className="w-1/2">
                             <label htmlFor="username" className="block mb-3">Username</label>
                             <InputText
                                 id="username"
@@ -141,13 +141,20 @@ export default function ProfileForm() {
                                 disabled
                             />
                         </div>
-                        <Button
-                            label="Need to change password?"
-                            className="h-11 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition whitespace-nowrap"
-                            type="button"
-                            onClick={() => navigate('/change-password-method')}
-                            style={{alignSelf:'flex-end'}}
-                        />
+                        <div className="w-1/2 flex flex-row gap-2">
+                            <Button
+                                label="Need to change password?"
+                                className="w-1/2 h-11 px-4 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition whitespace-nowrap"
+                                type="button"
+                                onClick={() => navigate('/change-password-method')}
+                            />
+                            <Button
+                                label="Need to change username?"
+                                className="w-1/2 h-11 px-4 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition whitespace-nowrap"
+                                type="button"
+                                onClick={() => navigate('/change-username')}
+                            />
+                        </div>
                     </div>
                     <div className="flex gap-6 mb-6">
                         <span className="w-1/2">
