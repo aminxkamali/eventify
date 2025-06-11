@@ -26,6 +26,9 @@ export default function EventsCategory() {
                     <div
                         key={category.id}
                         className="overflow-hidden border-none rounded-none bg-white hover:cursor-pointer justify-center items-center p-4"
+                        onClick={() => {
+                            window.location.href = `/ExplorePage?category=${encodeURIComponent(category.CategoryName)}`;
+                        }}
                     >
                         {/* Circular color icon for category */}
                         <div

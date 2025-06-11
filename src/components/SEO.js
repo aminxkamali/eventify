@@ -1,9 +1,5 @@
 import { Helmet } from "react-helmet";
 
-/**
- * SEO component for setting meta tags and title for each page.
- * Usage: <SEO title="..." description="..." />
- */
 export default function SEO({ title, description, keywords, children }) {
     return (
         <Helmet>

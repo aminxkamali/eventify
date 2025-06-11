@@ -36,7 +36,7 @@ const FriendsList = () => {
                     <Card
                         key={friend.id} // Unique key for each friend card
                         className="w-[10%] rounded-xl overflow-hidden shadow-sm bg-white hover:bg-gray-300 hover:cursor-pointer flex flex-col justify-center items-center p-4"
-                        onClick={() => navigate('/FriendsPage')}
+                        onClick={() => navigate('/CommunityPage?friendId=' + friend.id)} // Navigate to friend's profile on click
                     >
                         {/* Circle profile placeholder */}
                         <div

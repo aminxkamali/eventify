@@ -4,45 +4,99 @@ import BusinessImage from '../../assets/business.png';
 const events = [
     {
         id: 1,
+        Title: 'Business Meetup',
+        Description: 'A networking event for business professionals.',
+        Owner: 'John Doe',
+        Type: 'Networking',
+        StartTime: '2024-07-20 - 18:00',
+        EndTime: '2024-07-20 - 19:30',
+        IsDone: false,
+        Tags: ['Business', 'Networking'],
+        members: ['John Doe', 'Jane Smith'],
+        Teams: ['Team Alpha'],
         date: '20 Jul 2024',
         time: '18:00–19:30',
-        title: 'Business Meetup',
-        image: "../assets/business.png", 
+        image: BusinessImage,
     },
     {
         id: 2,
+        Title: 'Business Meetup',
+        Description: 'A networking event for business professionals.',
+        Owner: 'John Doe',
+        Type: 'Networking',
+        StartTime: '2024-07-20 - 18:00',
+        EndTime: '2024-07-20 - 19:30',
+        IsDone: false,
+        Tags: ['Business', 'Networking'],
+        members: ['John Doe', 'Jane Smith'],
+        Teams: ['Team Alpha'],
         date: '20 Jul 2024',
         time: '18:00–19:30',
-        title: 'Business Meetup',
-        image: {BusinessImage}, 
+        image: BusinessImage,
     },
     {
         id: 3,
+        Title: 'Business Meetup',
+        Description: 'A networking event for business professionals.',
+        Owner: 'John Doe',
+        Type: 'Networking',
+        StartTime: '2024-07-20 - 18:00',
+        EndTime: '2024-07-20 - 19:30',
+        IsDone: false,
+        Tags: ['Business', 'Networking'],
+        members: ['John Doe', 'Jane Smith'],
+        Teams: ['Team Alpha'],
         date: '20 Jul 2024',
         time: '18:00–19:30',
-        title: 'Business Meetup',
-        image: {BusinessImage}, 
+        image: BusinessImage,
     },
     {
         id: 4,
+        Title: 'Business Meetup',
+        Description: 'A networking event for business professionals.',
+        Owner: 'John Doe',
+        Type: 'Networking',
+        StartTime: '2024-07-20 - 18:00',
+        EndTime: '2024-07-20 - 19:30',
+        IsDone: false,
+        Tags: ['Business', 'Networking'],
+        members: ['John Doe', 'Jane Smith'],
+        Teams: ['Team Alpha'],
         date: '20 Jul 2024',
         time: '18:00–19:30',
-        title: 'Business Meetup',
-        image: {BusinessImage}, 
+        image: BusinessImage,
     },
     {
         id: 5,
+        Title: 'Business Meetup',
+        Description: 'A networking event for business professionals.',
+        Owner: 'John Doe',
+        Type: 'Networking',
+        StartTime: '2024-07-20 - 18:00',
+        EndTime: '2024-07-20 - 19:30',
+        IsDone: false,
+        Tags: ['Business', 'Networking'],
+        members: ['John Doe', 'Jane Smith'],
+        Teams: ['Team Alpha'],
         date: '20 Jul 2024',
         time: '18:00–19:30',
-        title: 'Business Meetup',
-        image: {BusinessImage}, 
+        image: BusinessImage,
     },
         {
         id: 6,
+        Title: 'Business Meetup',
+        Description: 'A networking event for business professionals.',
+        Owner: 'John Doe',
+        Type: 'Networking',
+        StartTime: '2024-07-20 - 18:00',
+        EndTime: '2024-07-20 - 19:30',
+        IsDone: false,
+        Tags: ['Business', 'Networking'],
+        members: ['John Doe', 'Jane Smith'],
+        Teams: ['Team Alpha'],
         date: '20 Jul 2024',
         time: '18:00–19:30',
-        title: 'Business Meetup',
-        image: {BusinessImage}, 
+        image: BusinessImage,
     },
 
 ];
@@ -64,18 +118,26 @@ return (
             <Card
                 key={event.id}
                 className="w-[15%] rounded-lg overflow-hidden shadow-sm bg-gray-200 hover:bg-gray-300 hover:cursor-pointer xl:w-[15%] lg:w-[13.5%] md:w-[12%] sm:w-[10%]"
+                onClick={() => {
+                    window.location.href = `/MyEventsPage?eventId=${event.id}`;
+                }}
             >
                 <img
-                src={BusinessImage}
-                alt="event"
-                className="w-full h-full object-cover rounded-t-lg"
+                    src={event.image}
+                    alt="event"
+                    className="w-full h-full object-cover rounded-t-lg"
                 />
                 <div className="p-3">
-                    <p className="text-sm text-gray-600 xl:text-sm lg:text-sm md:text-xs sm:text-xs">{event.date}</p>
-                    <p className="text-sm text-gray-600 xl:text-sm lg:text-sm md:text-xs sm:text-xs">{event.time}</p>
-                    <p className="text-md font-bold xl:text-md lg:text-md text-gray-900 mt-2 md:text-sm sm:text-xs">
-                        {event.title}
-                    </p>
+                    <p className="text-md font-bold text-gray-900 mt-2">{event.Title}</p>
+                    <p className="text-xs text-gray-600 mb-1">{event.Description}</p>
+                    <p className="text-xs text-gray-500 mb-1">Owner: {event.Owner}</p>
+                    <p className="text-xs text-gray-500 mb-1">Type: {event.Type}</p>
+                    <p className="text-xs text-gray-500 mb-1">Start: {event.StartTime}</p>
+                    <p className="text-xs text-gray-500 mb-1">End: {event.EndTime}</p>
+                    <p className="text-xs text-gray-500 mb-1">Status: {event.IsDone ? 'Done' : 'Upcoming'}</p>
+                    <p className="text-xs text-gray-500 mb-1">Tags: {event.Tags.join(', ')}</p>
+                    <p className="text-xs text-gray-500 mb-1">Members: {event.members.join(', ')}</p>
+                    <p className="text-xs text-gray-500 mb-1">Teams: {event.Teams.join(', ')}</p>
                 </div>
             </Card>
             ))}
