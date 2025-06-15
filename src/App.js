@@ -22,6 +22,7 @@ import ChangeUsernamePage from './pages/ChangeUsernamePage';
 import NotFoundPage from './pages/NotFoundPage';
 import ContactUsPage from './pages/ContactUsPage';
 import AboutUsPage from './pages/AboutUsPage';
+import HelpFAQPage from './pages/HelpFAQPage';
 function AppContent() {
   const hiddenChatRoutes = [
     '/',
@@ -59,6 +60,7 @@ function AppContent() {
         <Route path="/change-username" element={<ChangeUsernamePage />} />
         <Route path="/ContactUsPage" element={<ContactUsPage />} />
         <Route path="/AboutUs" element={<AboutUsPage />} />
+        <Route path="/HelpFAQ" element={<HelpFAQPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
