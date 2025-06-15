@@ -30,6 +30,7 @@ export default function HomeFooter() {
                         <li>Plan, join, and organize events easily with a modern and intuitive interface.</li>
                         <li>Collaborate with your community, share ideas, and never miss an important moment.</li>
                         <li>Designed for teams, friends, and anyone who loves to connect and celebrate together.</li>
+                        <li><Link to="/AboutUs">About Us</Link></li>
                     </ul>
                 </div>
 
@@ -42,7 +43,6 @@ export default function HomeFooter() {
                         <li><Link to="/CommunityPage">Community</Link></li>
                         <li><Link to="/CreateEvent">Create Event</Link></li>
                         <li><Link to="/ProfilePage">Profile</Link></li>
-                        <li><Link to="/ContactUsPage">Contact Us</Link></li>
                     </ul>
                 </div>
 
@@ -50,10 +50,8 @@ export default function HomeFooter() {
                 <div>
                     <h4 className="font-semibold text-gray-300 mb-3">Contact & Support</h4>
                     <ul className="flex flex-col gap-2 text-gray-400">
-                        <li>Have questions or need help? Reach out to us!</li>
-                        <li>We are here to assist you with any inquiries or issues.</li>
-                        <li>Follow us on social media for updates and news.</li>
-                        <li>Join our community for discussions and support.</li>
+                        <li><Link to="/ContactUsPage">Contact Us</Link></li>
+                        <li><Link to="/AboutUs">About Us</Link></li>
                         <li>Email: <a href="mailto:support@eventify.com" className="hover:text-orange-400">support@eventify.com</a></li>
                         <li>Instagram: <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400">@eventify</a></li>
                         <li>LinkedIn: <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400">Eventify Team</a></li>

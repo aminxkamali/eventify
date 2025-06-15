@@ -21,6 +21,7 @@ import ChangePasswordCurrentPage from './pages/ChangePasswordCurrentPage';
 import ChangeUsernamePage from './pages/ChangeUsernamePage';
 import NotFoundPage from './pages/NotFoundPage';
 import ContactUsPage from './pages/ContactUsPage';
+import AboutUsPage from './pages/AboutUsPage';
 function AppContent() {
   const hiddenChatRoutes = [
     '/',
@@ -57,6 +58,7 @@ function AppContent() {
         <Route path="/change-password-current" element={<ChangePasswordCurrentPage />} />
         <Route path="/change-username" element={<ChangeUsernamePage />} />
         <Route path="/ContactUsPage" element={<ContactUsPage />} />
+        <Route path="/AboutUs" element={<AboutUsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
