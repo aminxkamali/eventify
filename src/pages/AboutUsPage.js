@@ -20,6 +20,11 @@ export default function AboutUsPage() {
                 </ul>
             </div>
             <p className="text-gray-400 text-center max-w-xl">Thank you for being part of the Eventify community. Let's make every event unforgettable!</p>
+            <a href="/HomePage">
+                <button className="mt-8 hover:text-orange-600 text-white font-bold  shadow-lg transition-all duration-200">
+                    Back to Home Page
+                </button>
+            </a>
         </div>
     );
 }

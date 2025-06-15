@@ -56,6 +56,11 @@ export default function ContactUsPage() {
                     <div className="text-green-400 text-center mt-2">Thank you for contacting us! We'll respond soon.</div>
                 )}
             </form>
+            <a href="/HomePage">
+                <button className="mt-8 hover:text-orange-600 text-white font-bold  shadow-lg transition-all duration-200">
+                    Back to Home Page
+                </button>
+            </a>
         </div>
     );
 }
