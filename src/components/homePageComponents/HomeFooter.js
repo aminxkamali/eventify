@@ -37,11 +37,11 @@ export default function HomeFooter() {
                 <div>
                     <h4 className="font-semibold text-gray-300 mb-3">Explore</h4>
                     <ul className="flex flex-col gap-2 text-gray-400">
-                        <li><Link to="/ExplorePage">Discover Events</Link></li>
-                        <li><Link to="/MyEventsPage">My Events</Link></li>
-                        <li><Link to="/CommunityPage">Community</Link></li>
-                        <li><Link to="/CreateEvent">Create Event</Link></li>
-                        <li><Link to="/ProfilePage">Profile</Link></li>
+                        <li className="hover:text-orange-400"><Link to="/ExplorePage">Discover Events</Link></li>
+                        <li className="hover:text-orange-400"><Link to="/MyEventsPage">My Events</Link></li>
+                        <li className="hover:text-orange-400"><Link to="/CommunityPage">Community</Link></li>
+                        <li className="hover:text-orange-400"><Link to="/CreateEvent">Create Event</Link></li>
+                        <li className="hover:text-orange-400"><Link to="/ProfilePage">Profile</Link></li>
                     </ul>
                 </div>
 
